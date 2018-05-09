@@ -1,5 +1,3 @@
-from typing import Iterable
-
 from linked_list.linked_list import LinkedList
 
 
@@ -23,7 +21,6 @@ class Stack(LinkedList):
             return super().pop(0)
         raise IndexError("Trying to pop from empty stack")
 
-
     def push(self, value):
         """Puts an element on top of the stack. throws StackOverflowError if push will exceed max size"""
         if len(self) >= self.max_size - 1:
@@ -36,3 +33,31 @@ class Stack(LinkedList):
             return self.head.value
         raise IndexError("Trying to peek at top value of empty stack")
 
+
+def check_balance_paren(expression):
+    st = Stack()
+    open_parens = ['(', '{', '[']
+    close_parens = [')', '}', ']']
+    for ch in expression:
+        if ch in open_parens:
+            st.push(ch)
+        elif ch in close_parens:
+            if not len(st): # if stack is empty, there's no matching bracket
+                return False
+            open = st.pop() # get the last used opening paren
+            if open != open_parens[close_parens.index(ch)]:
+                return False
+    return not len(st) # if the stack is not empty at the end, not balanced
+
+
+def main():
+    s = input("Enter an expression to check the balance (Enter to quit): ")
+    while (s):
+        print("{} is".format(s), "balanced" if check_balance_paren(s) else "not balanced")
+        s = input("Enter an expression to check the balance (Enter to quit: ")
+
+    #print(check_balance_paren(""))
+
+
+if __name__ == "__main__":
+    main()
