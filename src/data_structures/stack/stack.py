@@ -36,11 +36,3 @@ class Stack(LinkedList):
             return self.head.value
         raise IndexError("Trying to peek at top value of empty stack")
 
-
-# def main():
-#     st = Stack(values=[1,2,3])
-#     print(st.pop())
-#
-#
-# if __name__ == "__main__":
-#     main()
