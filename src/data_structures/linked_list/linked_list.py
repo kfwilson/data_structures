@@ -33,12 +33,12 @@ class LinkedList:
         if isinstance(values, Iterable):
             if values:
                 self.head = LinkedListNode(values[0])
-                curr = self.head
+                curr = self._head
                 for v in values[1:]:
                     curr.next = LinkedListNode(v)
                     curr = curr._next
             else:
-                self.head = None
+                self._head = None
         else:
             raise TypeError("{} object is not iterable.".format(values))
 
