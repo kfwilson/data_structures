@@ -58,16 +58,9 @@ def check_balance_paren(expression):
     for ch in expression:
         if ch in open_parens:
             st.push(ch)
-        elif ch in close_parens and len(st) and st.pop() == open_parens[close_parens.index(ch)]: # flatten this nested conditional
-            return True
-        else:
+        elif ch in close_parens and (not len(st) or st.pop() != open_parens[close_parens.index(ch)]):
             return False
-            # if not len(st): # if stack is empty, there's no matching bracket
-            #     return False
-            # open = st.pop() # get the last used opening paren
-            # if open != open_parens[close_parens.index(ch)]:
-            #     return False
-    return not len(st) # if the stack is not empty at the end, not balanced
+    return not len(st)  # if the stack is not empty at the end, not balanced
 
 
 def main():
