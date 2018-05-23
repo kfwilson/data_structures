@@ -1,6 +1,0 @@
-{
-  "tests/test_recursion_iteration.py::test_ackermann_iterative_m_0": true,
-  "tests/test_recursion_iteration.py::test_fibonacci_iterative_stack": true,
-  "tests/test_recursion_iteration.py::test_iterative": true,
-  "tests/test_recursion_iteration.py::test_iterative[array([0.14131225, 0.82462904, 0.80025902, 0.7615221 , 0.00788187,\\n       0.12336119, 0.10215918, 0.87220017, 0.23783393, 0.12618231])]": true
-}
